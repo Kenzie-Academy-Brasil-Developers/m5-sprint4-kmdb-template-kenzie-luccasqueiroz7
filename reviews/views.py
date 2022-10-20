@@ -45,7 +45,7 @@ class ReviewMovieIdView(APIView, CustomPageNumberPagination):
 class ReviewReviewIdView(APIView):
 
     authentication_classes = [TokenAuthentication]
-    permission_classes = [MyCustomPermission, IsCriticOwner]
+    permission_classes = [IsCriticOwner]
 
     def get(self, request: Request, movie_id: int, review_id: int):
         review = get_object_or_404(Review, id=review_id)
